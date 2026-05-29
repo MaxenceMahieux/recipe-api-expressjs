@@ -4,12 +4,13 @@
  */
 const calculateNutrition = (ingredients) => {
   if (!ingredients || ingredients.length === 0) {
-    return { totalCalories: 0, ingredientCount: 0 }
+    return { totalCalories: 0, ingredientCount: 0 };
   }
 
-  const totalCalories = ingredients.reduce((sum, ingredient) => {
-    return sum + ingredient.calories
-  }, 0)
+  const totalCalories = ingredients.reduce(
+    (sum, ingredient) => sum + ingredient.calories,
+    0,
+  );
 
   return {
     totalCalories,
@@ -18,7 +19,7 @@ const calculateNutrition = (ingredients) => {
       name: i.name,
       calories: i.calories,
     })),
-  }
-}
+  };
+};
 
-module.exports = { calculateNutrition }
+module.exports = { calculateNutrition };

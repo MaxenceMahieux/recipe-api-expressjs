@@ -1,16 +1,16 @@
-const fs = require("fs")
-const path = require("path")
+const fs = require('fs');
+const path = require('path');
 
-const seedPath = path.join(__dirname, "../../data/seed.json")
-let recipes = JSON.parse(fs.readFileSync(seedPath, "utf-8"))
+const seedPath = path.join(__dirname, '../../data/seed.json');
+const recipes = JSON.parse(fs.readFileSync(seedPath, 'utf-8'));
 
 const RecipeModel = {
   findAll() {
-    return recipes
+    return recipes;
   },
 
   findById(id) {
-    return recipes.find((r) => r.id === parseInt(id))
+    return recipes.find((r) => r.id === parseInt(id, 10));
   },
 
   create(data) {
@@ -23,25 +23,25 @@ const RecipeModel = {
       category: data.category,
       ratings: [],
       averageRating: 0,
-    }
-    recipes.push(recipe)
-    return recipe
+    };
+    recipes.push(recipe);
+    return recipe;
   },
 
   update(id, data) {
-    const idx = recipes.findIndex((r) => r.id === parseInt(id))
-    if (idx === -1) return null
-    Object.assign(recipes[idx], data)
-    return recipes[idx]
+    const idx = recipes.findIndex((r) => r.id === parseInt(id, 10));
+    if (idx === -1) return null;
+    Object.assign(recipes[idx], data);
+    return recipes[idx];
   },
 
   delete(id) {
-    const idx = recipes.findIndex((r) => r.id === parseInt(id))
-    if (idx === -1) return null
-    const deleted = recipes[idx]
-    recipes.splice(idx, 1)
-    return deleted
+    const idx = recipes.findIndex((r) => r.id === parseInt(id, 10));
+    if (idx === -1) return null;
+    const deleted = recipes[idx];
+    recipes.splice(idx, 1);
+    return deleted;
   },
-}
+};
 
-module.exports = RecipeModel
+module.exports = RecipeModel;
