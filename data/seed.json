@@ -1,0 +1,387 @@
+[
+  {
+    "id": 1,
+    "title": "Tarte aux pommes",
+    "ingredients": [
+      { "name": "pomme", "quantity": 4, "unit": "pièce", "calories": 80 },
+      { "name": "farine", "quantity": 200, "unit": "g", "calories": 364 },
+      { "name": "beurre", "quantity": 100, "unit": "g", "calories": 717 }
+    ],
+    "steps": [
+      "Éplucher les pommes",
+      "Préparer la pâte",
+      "Assembler et cuire 35 min"
+    ],
+    "prepTime": 50,
+    "category": "dessert",
+    "ratings": [4, 5, 3],
+    "averageRating": 4
+  },
+  {
+    "id": 2,
+    "title": "Soupe à l'oignon",
+    "ingredients": [
+      { "name": "oignon", "quantity": 3, "unit": "pièce", "calories": 44 },
+      {
+        "name": "bouillon de boeuf",
+        "quantity": 1,
+        "unit": "L",
+        "calories": 15
+      },
+      { "name": "gruyère", "quantity": 100, "unit": "g", "calories": 396 }
+    ],
+    "steps": [
+      "Faire revenir les oignons",
+      "Ajouter le bouillon",
+      "Gratiner au four"
+    ],
+    "prepTime": 40,
+    "category": "entrée",
+    "ratings": [5, 4],
+    "averageRating": 4.5
+  },
+  {
+    "id": 3,
+    "title": "Pasta Carbonara",
+    "ingredients": [
+      { "name": "spaghetti", "quantity": 400, "unit": "g", "calories": 371 },
+      { "name": "lardons", "quantity": 200, "unit": "g", "calories": 337 },
+      { "name": "oeuf", "quantity": 4, "unit": "pièce", "calories": 68 },
+      { "name": "parmesan", "quantity": 80, "unit": "g", "calories": 431 }
+    ],
+    "steps": [
+      "Cuire les pâtes",
+      "Faire revenir les lardons",
+      "Mélanger hors du feu"
+    ],
+    "prepTime": 25,
+    "category": "plat",
+    "ratings": [5, 5, 4, 5],
+    "averageRating": 4.75
+  },
+  {
+    "id": 4,
+    "title": "Salade César",
+    "ingredients": [
+      {
+        "name": "laitue romaine",
+        "quantity": 1,
+        "unit": "pièce",
+        "calories": 17
+      },
+      {
+        "name": "poulet grillé",
+        "quantity": 200,
+        "unit": "g",
+        "calories": 165
+      },
+      { "name": "croûtons", "quantity": 50, "unit": "g", "calories": 186 }
+    ],
+    "steps": [
+      "Laver la salade",
+      "Griller le poulet",
+      "Assembler avec la sauce"
+    ],
+    "prepTime": 20,
+    "category": "entrée",
+    "ratings": [3, 4],
+    "averageRating": 3.5
+  },
+  {
+    "id": 5,
+    "title": "Crème brûlée",
+    "ingredients": [
+      {
+        "name": "crème liquide",
+        "quantity": 500,
+        "unit": "mL",
+        "calories": 300
+      },
+      {
+        "name": "jaune d'oeuf",
+        "quantity": 5,
+        "unit": "pièce",
+        "calories": 55
+      },
+      { "name": "sucre", "quantity": 100, "unit": "g", "calories": 387 }
+    ],
+    "steps": [
+      "Mélanger crème et oeufs",
+      "Cuire au bain-marie 40 min",
+      "Caraméliser le sucre"
+    ],
+    "prepTime": 60,
+    "category": "dessert",
+    "ratings": [5, 5, 5],
+    "averageRating": 5
+  },
+  {
+    "id": 6,
+    "title": "Ratatouille",
+    "ingredients": [
+      { "name": "courgette", "quantity": 2, "unit": "pièce", "calories": 17 },
+      { "name": "aubergine", "quantity": 1, "unit": "pièce", "calories": 25 },
+      { "name": "tomate", "quantity": 3, "unit": "pièce", "calories": 18 }
+    ],
+    "steps": [
+      "Couper les légumes",
+      "Faire revenir à l'huile d'olive",
+      "Mijoter 30 min"
+    ],
+    "prepTime": 50,
+    "category": "plat",
+    "ratings": [4, 3, 4],
+    "averageRating": 3.67
+  },
+  {
+    "id": 7,
+    "title": "Salade César",
+    "ingredients": [
+      { "name": "laitue", "quantity": 1, "unit": "pièce", "calories": 15 },
+      { "name": "poulet", "quantity": 200, "unit": "g", "calories": 239 },
+      { "name": "parmesan", "quantity": 50, "unit": "g", "calories": 431 }
+    ],
+    "steps": [
+      "Cuire le poulet",
+      "Préparer la salade",
+      "Assembler avec la sauce"
+    ],
+    "prepTime": 30,
+    "category": "plat",
+    "ratings": [4, 5, 4],
+    "averageRating": 4.33
+  },
+  {
+    "id": 8,
+    "title": "Pancakes",
+    "ingredients": [
+      { "name": "farine", "quantity": 200, "unit": "g", "calories": 364 },
+      { "name": "lait", "quantity": 300, "unit": "mL", "calories": 42 },
+      { "name": "oeuf", "quantity": 2, "unit": "pièce", "calories": 70 }
+    ],
+    "steps": ["Mélanger les ingrédients", "Cuire à la poêle", "Servir chaud"],
+    "prepTime": 20,
+    "category": "dessert",
+    "ratings": [5, 4, 5],
+    "averageRating": 4.67
+  },
+  {
+    "id": 9,
+    "title": "Soupe de légumes",
+    "ingredients": [
+      { "name": "carotte", "quantity": 3, "unit": "pièce", "calories": 41 },
+      { "name": "poireau", "quantity": 1, "unit": "pièce", "calories": 61 },
+      {
+        "name": "pomme de terre",
+        "quantity": 2,
+        "unit": "pièce",
+        "calories": 77
+      }
+    ],
+    "steps": ["Couper les légumes", "Faire bouillir", "Mixer"],
+    "prepTime": 40,
+    "category": "entrée",
+    "ratings": [4, 4, 3],
+    "averageRating": 3.67
+  },
+  {
+    "id": 10,
+    "title": "Spaghetti bolognaise",
+    "ingredients": [
+      { "name": "spaghetti", "quantity": 200, "unit": "g", "calories": 158 },
+      {
+        "name": "viande hachée",
+        "quantity": 150,
+        "unit": "g",
+        "calories": 250
+      },
+      { "name": "tomate", "quantity": 2, "unit": "pièce", "calories": 18 }
+    ],
+    "steps": ["Cuire les pâtes", "Préparer la sauce", "Assembler"],
+    "prepTime": 35,
+    "category": "plat",
+    "ratings": [5, 4, 5],
+    "averageRating": 4.67
+  },
+  {
+    "id": 11,
+    "title": "Omelette",
+    "ingredients": [
+      { "name": "oeuf", "quantity": 3, "unit": "pièce", "calories": 70 },
+      { "name": "fromage", "quantity": 50, "unit": "g", "calories": 402 },
+      { "name": "beurre", "quantity": 10, "unit": "g", "calories": 717 }
+    ],
+    "steps": ["Battre les oeufs", "Cuire à la poêle", "Ajouter le fromage"],
+    "prepTime": 10,
+    "category": "plat",
+    "ratings": [4, 3, 4],
+    "averageRating": 3.67
+  },
+  {
+    "id": 12,
+    "title": "Tarte aux pommes",
+    "ingredients": [
+      { "name": "pomme", "quantity": 4, "unit": "pièce", "calories": 52 },
+      {
+        "name": "pâte brisée",
+        "quantity": 1,
+        "unit": "pièce",
+        "calories": 350
+      },
+      { "name": "sucre", "quantity": 80, "unit": "g", "calories": 387 }
+    ],
+    "steps": ["Préparer les pommes", "Garnir la pâte", "Cuire au four 35 min"],
+    "prepTime": 50,
+    "category": "dessert",
+    "ratings": [5, 5, 4],
+    "averageRating": 4.67
+  },
+  {
+    "id": 13,
+    "title": "Poulet rôti",
+    "ingredients": [
+      {
+        "name": "poulet entier",
+        "quantity": 1,
+        "unit": "pièce",
+        "calories": 239
+      },
+      { "name": "herbes", "quantity": 10, "unit": "g", "calories": 50 },
+      {
+        "name": "huile d'olive",
+        "quantity": 20,
+        "unit": "mL",
+        "calories": 884
+      }
+    ],
+    "steps": ["Assaisonner le poulet", "Cuire au four 1h", "Servir"],
+    "prepTime": 70,
+    "category": "plat",
+    "ratings": [5, 4, 5],
+    "averageRating": 4.67
+  },
+  {
+    "id": 14,
+    "title": "Smoothie banane",
+    "ingredients": [
+      { "name": "banane", "quantity": 2, "unit": "pièce", "calories": 89 },
+      { "name": "lait", "quantity": 200, "unit": "mL", "calories": 42 },
+      { "name": "miel", "quantity": 20, "unit": "g", "calories": 304 }
+    ],
+    "steps": ["Mixer les ingrédients", "Servir frais"],
+    "prepTime": 5,
+    "category": "boisson",
+    "ratings": [4, 5, 4],
+    "averageRating": 4.33
+  },
+  {
+    "id": 15,
+    "title": "Gratin dauphinois",
+    "ingredients": [
+      {
+        "name": "pomme de terre",
+        "quantity": 500,
+        "unit": "g",
+        "calories": 77
+      },
+      { "name": "crème", "quantity": 300, "unit": "mL", "calories": 300 },
+      { "name": "ail", "quantity": 2, "unit": "gousse", "calories": 149 }
+    ],
+    "steps": [
+      "Couper les pommes de terre",
+      "Ajouter la crème",
+      "Cuire au four 1h"
+    ],
+    "prepTime": 80,
+    "category": "plat",
+    "ratings": [5, 5, 5],
+    "averageRating": 5
+  },
+  {
+    "id": 16,
+    "title": "Salade de fruits",
+    "ingredients": [
+      { "name": "pomme", "quantity": 1, "unit": "pièce", "calories": 52 },
+      { "name": "orange", "quantity": 1, "unit": "pièce", "calories": 47 },
+      { "name": "banane", "quantity": 1, "unit": "pièce", "calories": 89 }
+    ],
+    "steps": ["Couper les fruits", "Mélanger", "Servir frais"],
+    "prepTime": 15,
+    "category": "dessert",
+    "ratings": [4, 4, 4],
+    "averageRating": 4
+  },
+  {
+    "id": 17,
+    "title": "Quiche lorraine",
+    "ingredients": [
+      {
+        "name": "pâte brisée",
+        "quantity": 1,
+        "unit": "pièce",
+        "calories": 350
+      },
+      { "name": "lardons", "quantity": 200, "unit": "g", "calories": 541 },
+      { "name": "crème", "quantity": 200, "unit": "mL", "calories": 300 }
+    ],
+    "steps": [
+      "Préparer la garniture",
+      "Verser sur la pâte",
+      "Cuire au four 40 min"
+    ],
+    "prepTime": 60,
+    "category": "plat",
+    "ratings": [5, 4, 4],
+    "averageRating": 4.33
+  },
+  {
+    "id": 18,
+    "title": "Riz sauté",
+    "ingredients": [
+      { "name": "riz", "quantity": 200, "unit": "g", "calories": 130 },
+      { "name": "oeuf", "quantity": 2, "unit": "pièce", "calories": 70 },
+      { "name": "légumes", "quantity": 150, "unit": "g", "calories": 50 }
+    ],
+    "steps": [
+      "Cuire le riz",
+      "Faire sauter avec les ingrédients",
+      "Assaisonner"
+    ],
+    "prepTime": 25,
+    "category": "plat",
+    "ratings": [4, 3, 4],
+    "averageRating": 3.67
+  },
+  {
+    "id": 19,
+    "title": "Brownie",
+    "ingredients": [
+      { "name": "chocolat", "quantity": 200, "unit": "g", "calories": 546 },
+      { "name": "beurre", "quantity": 100, "unit": "g", "calories": 717 },
+      { "name": "sucre", "quantity": 150, "unit": "g", "calories": 387 }
+    ],
+    "steps": [
+      "Faire fondre le chocolat",
+      "Mélanger les ingrédients",
+      "Cuire 25 min"
+    ],
+    "prepTime": 40,
+    "category": "dessert",
+    "ratings": [5, 5, 5],
+    "averageRating": 5
+  },
+  {
+    "id": 20,
+    "title": "Sandwich jambon beurre",
+    "ingredients": [
+      { "name": "pain", "quantity": 1, "unit": "pièce", "calories": 265 },
+      { "name": "jambon", "quantity": 100, "unit": "g", "calories": 145 },
+      { "name": "beurre", "quantity": 20, "unit": "g", "calories": 717 }
+    ],
+    "steps": ["Couper le pain", "Ajouter le jambon et le beurre", "Assembler"],
+    "prepTime": 5,
+    "category": "plat",
+    "ratings": [4, 4, 4],
+    "averageRating": 4
+  }
+]
