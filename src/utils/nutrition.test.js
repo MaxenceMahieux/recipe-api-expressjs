@@ -29,7 +29,7 @@ describe("Test du calcul de la nutrition de la recette", () => {
       expect(nutrition.ingredientCount).toEqual(4);
     });
     it("devrait retourner un total d'ingrédients de 0", () => {
-      expect(calculateNutrition([])).toEqual(0);
+      expect(calculateNutrition([]).ingredientCount).toEqual(0);
     });
     it("devrait retourner un total d'ingrédients de 0", () => {
       const recipeWith0Quantity = [
@@ -52,6 +52,10 @@ describe("Test du calcul de la nutrition de la recette", () => {
     });
     it("avec un ingrédient incomplet devrait retourner une erreur", () => {
       expect(() => calculateNutrition([{}])).toThrow("Invalid ingredient");
+      expect(() => calculateNutrition([0])).toThrow("Invalid ingredient");
+      expect(() => calculateNutrition(["spaghetti"])).toThrow(
+        "Invalid ingredient",
+      );
       expect(() =>
         calculateNutrition([{ name: "spaghetti", quantity: 400, unit: "g" }]),
       ).toThrow("Invalid ingredient");
@@ -115,14 +119,14 @@ describe("Test du calcul de la nutrition de la recette", () => {
     it("devrait supporter une grande quantité", () => {
       expect(() =>
         calculateNutrition([
-          { name: hugeString, quantity: Infinity, unit: "g", calories: 371 },
+          { name: "camembert", quantity: Infinity, unit: "g", calories: 371 },
         ]),
       ).not.toThrow("Invalid quantity");
     });
     it("devrait supporter un grand nombre de calories", () => {
       expect(() =>
         calculateNutrition([
-          { name: hugeString, quantity: 400, unit: "g", calories: Infinity },
+          { name: "camembert", quantity: 400, unit: "g", calories: Infinity },
         ]),
       ).not.toThrow("Invalid quantity");
     });
@@ -130,11 +134,11 @@ describe("Test du calcul de la nutrition de la recette", () => {
 
   describe("Test du calcul des calories par ingrédient", () => {
     it("devrait retourner un résulat correct", () => {
-      expect(() =>
+      expect(
         calculateNutrition([
           { name: "camembert", quantity: 400, unit: "g", calories: 500 },
           { name: "vin", quantity: 400, unit: "l", calories: 500 },
-        ]),
+        ]).perIngredient,
       ).toEqual([
         { name: "camembert", calories: 200000 },
         { name: "vin", calories: 200000 },
