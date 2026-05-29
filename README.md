@@ -89,6 +89,7 @@ Un corps de message (optionnel) peut être ajouté après une ligne vide pour ex
 | 🔧 | `:wrench:` | Configuration (package.json, jest, CI...) |
 | 🚀 | `:rocket:` | Déploiement |
 | 🎉 | `:tada:` | Initialisation du projet |
+| 🔀 | `:twisted_rightwards_arrows:` | Fusion de branches (commit de merge) |
 
 ### Exemples
 
