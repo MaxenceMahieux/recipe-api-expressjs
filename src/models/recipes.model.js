@@ -9,6 +9,14 @@ const validateId = (id) => {
     throw new Error('wrong id format');
 };
 
+const validateRecipe = (recipe, requiredFields) => {
+  for (const field of requiredFields) {
+    if (!(field in recipe)) {
+      throw new Error('Invalid recipe');
+    }
+  }
+};
+
 const RecipeModel = {
   findAll() {
     return recipes;
@@ -24,11 +32,24 @@ const RecipeModel = {
   },
 
   create(data) {
+    const requiredFields = [
+      'title',
+      'ingredients',
+      'steps',
+      'prepTime',
+      'category',
+    ];
+    validateRecipe(data, requiredFields);
+    const idx = recipes.findIndex((r) => r.title === data.title);
+    if (idx != -1) {
+      throw new Error('There is already a recipe with that title');
+    }
+
     const recipe = {
       id: recipes.length + 1,
       title: data.title,
-      ingredients: data.ingredients || [],
-      steps: data.steps || [],
+      ingredients: data.ingredients,
+      steps: data.steps,
       prepTime: data.prepTime,
       category: data.category,
       ratings: [],
@@ -40,7 +61,20 @@ const RecipeModel = {
 
   update(id, data) {
     validateId(id);
+    const requiredFields = [
+      'title',
+      'ingredients',
+      'steps',
+      'prepTime',
+      'category',
+      'ratings',
+      'averageRating',
+    ];
+    validateRecipe(data, requiredFields);
     const idx = recipes.findIndex((r) => r.id === id);
+    if (idx === -1) {
+      throw new Error(`id not found`);
+    }
     Object.assign(recipes[idx], data);
     return recipes[idx];
   },
