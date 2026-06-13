@@ -21,6 +21,14 @@ const calculateNutrition = (ingredients) => {
     if (!possibleUnit.includes(ingredient.unit)) {
       throw new Error('Invalid unit');
     }
+
+    if (typeof ingredient.quantity != 'number') {
+      throw new Error('Invalid quantity');
+    }
+
+    if (typeof ingredient.name != 'string') {
+      throw new Error('Invalid Invalid name');
+    }
   }
 
   const totalCalories = ingredients.reduce((sum, ingredient) => {

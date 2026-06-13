@@ -97,16 +97,16 @@ describe('Test du calcul de la nutrition de la recette', () => {
     it('avec un nom invalide devrait retourner une erreur', () => {
       expect(() =>
         calculateNutrition([
-          { name: 34, quantity: '400', unit: 'g', calories: 371 },
+          { name: 34, quantity: 400, unit: 'g', calories: 371 },
         ]),
-      ).toThrow('Invalid quantity');
+      ).toThrow('Invalid name');
     });
     it('devrait supporter un nom long', () => {
       const size = 1024 * 1024;
       const hugeString = 'a'.repeat(size);
       expect(() =>
         calculateNutrition([
-          { name: hugeString, quantity: '400', unit: 'g', calories: 371 },
+          { name: hugeString, quantity: 400, unit: 'g', calories: 371 },
         ]),
       ).not.toThrow('Invalid quantity');
     });
@@ -122,7 +122,7 @@ describe('Test du calcul de la nutrition de la recette', () => {
         calculateNutrition([
           { name: 'camembert', quantity: 400, unit: 'g', calories: Infinity },
         ]),
-      ).not.toThrow('Invalid quantity');
+      ).not.toThrow('Invalid ingredient');
     });
   });
 
