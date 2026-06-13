@@ -7,6 +7,12 @@ const recipes = JSON.parse(fs.readFileSync(seedPath, 'utf-8'));
 const validateId = (id) => {
   if (typeof id != 'number' || !Number.isInteger(id) || id < 0)
     throw new Error('wrong id format');
+
+  const idx = recipes.findIndex((r) => r.id === id);
+  if (idx === -1) {
+    throw new Error(`id not found`);
+  }
+  return idx;
 };
 
 const validateRecipe = (recipe, requiredFields) => {
@@ -23,11 +29,8 @@ const RecipeModel = {
   },
 
   findById(id) {
-    validateId(id);
-    const idx = recipes.findIndex((r) => r.id === id);
-    if (idx === -1) {
-      throw new Error(`id not found`);
-    }
+    const idx = validateId(id);
+
     return recipes[idx];
   },
 
@@ -60,7 +63,7 @@ const RecipeModel = {
   },
 
   update(id, data) {
-    validateId(id);
+    const idx = validateId(id);
     const requiredFields = [
       'title',
       'ingredients',
@@ -71,20 +74,14 @@ const RecipeModel = {
       'averageRating',
     ];
     validateRecipe(data, requiredFields);
-    const idx = recipes.findIndex((r) => r.id === id);
-    if (idx === -1) {
-      throw new Error(`id not found`);
-    }
+
     Object.assign(recipes[idx], data);
     return recipes[idx];
   },
 
   delete(id) {
-    validateId(id);
-    const idx = recipes.findIndex((r) => r.id === id);
-    if (idx === -1) {
-      throw new Error(`id not found`);
-    }
+    const idx = validateId(id);
+
     const deleted = recipes[idx];
     recipes.splice(idx, 1);
     return deleted;
