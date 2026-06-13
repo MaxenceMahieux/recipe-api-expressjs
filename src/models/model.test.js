@@ -44,12 +44,12 @@ describe('Test du modèle de recette', () => {
     it('devrait rajouter une recette', () => {
       const receiptNumberBefore = RecipeModel.findAll().length;
       RecipeModel.create({
-        title: 'Tarte aux pommes',
+        title: 'Tarte aux poires',
         ingredients: [
-          { name: 'pomme', quantity: 4, unit: 'pièce', calories: 80 },
+          { name: 'poires', quantity: 4, unit: 'pièce', calories: 80 },
           { name: 'farine', quantity: 200, unit: 'g', calories: 364 },
         ],
-        steps: ['Éplucher les pommes', 'Préparer la pâte', 'Cuire 35 min'],
+        steps: ['Éplucher les poires', 'Préparer la pâte', 'Cuire 35 min'],
         prepTime: 45,
         category: 'dessert',
       });
