@@ -5,6 +5,7 @@
 const calculateNutrition = (ingredients) => {
   if (!ingredients || ingredients.length === 0) {
     return { totalCalories: 0, ingredientCount: 0 };
+<<<<<<< HEAD
   }
 
   const requiredFields = ["name", "quantity", "unit", "calories"];
@@ -19,6 +20,14 @@ const calculateNutrition = (ingredients) => {
   const totalCalories = ingredients.reduce((sum, ingredient) => {
     return sum + ingredient.calories;
   }, 0);
+=======
+  }
+
+  const totalCalories = ingredients.reduce(
+    (sum, ingredient) => sum + ingredient.calories,
+    0,
+  );
+>>>>>>> b7e4d5b8acf71c6de90e1b3a46f1be5cc900fac0
 
   return {
     totalCalories,
