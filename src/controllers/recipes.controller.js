@@ -22,7 +22,13 @@ const recipesController = {
   },
 
   getRecipeById(req, res) {
-    const recipe = RecipeModel.findById(req.params.id);
+    const rID = parseInt(req.params.id);
+    if (isNaN(rID))
+      return res
+        .status(400)
+        .json({ success: false, error: 'This id is not a number' });
+
+    const recipe = RecipeModel.findById(rID);
     if (!recipe) {
       return res
         .status(404)
@@ -60,19 +66,30 @@ const recipesController = {
   },
 
   updateRecipe(req, res) {
-    const recipe = RecipeModel.findById(req.params.id);
+    const rID = parseInt(req.params.id);
+    if (isNaN(rID))
+      return res
+        .status(400)
+        .json({ success: false, error: 'This id is not a number' });
+
+    const recipe = RecipeModel.findById(rID);
     if (!recipe) {
       return res
         .status(404)
         .json({ success: false, error: 'Recipe not found' });
     }
 
-    const updated = RecipeModel.update(req.params.id, req.body);
+    const updated = RecipeModel.update(rID, req.body);
     return res.json({ success: true, data: updated });
   },
 
   deleteRecipe(req, res) {
-    const deleted = RecipeModel.delete(req.params.id);
+    const rID = parseInt(req.params.id);
+    if (isNaN(rID))
+      return res
+        .status(400)
+        .json({ success: false, error: 'This id is not a number' });
+    const deleted = RecipeModel.delete(rID);
     if (!deleted) {
       return res
         .status(404)
@@ -82,7 +99,12 @@ const recipesController = {
   },
 
   rateRecipe(req, res) {
-    const recipe = RecipeModel.findById(req.params.id);
+    const rID = parseInt(req.params.id);
+    if (isNaN(rID))
+      return res
+        .status(400)
+        .json({ success: false, error: 'This id is not a number' });
+    const recipe = RecipeModel.findById(rID);
     if (!recipe) {
       return res
         .status(404)
@@ -104,7 +126,12 @@ const recipesController = {
   },
 
   getNutrition(req, res) {
-    const recipe = RecipeModel.findById(req.params.id);
+    const rID = parseInt(req.params.id);
+    if (isNaN(rID))
+      return res
+        .status(400)
+        .json({ success: false, error: 'This id is not a number' });
+    const recipe = RecipeModel.findById(rID);
     if (!recipe) {
       return res
         .status(404)
