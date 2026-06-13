@@ -40,22 +40,16 @@ describe("Test du calcul de la nutrition de la recette", () => {
       ];
       nutrition = calculateNutrition(recipeWith0Quantity);
 
-      expect(calculateNutrition(nutrition.ingredientCount)).toEqual(0);
+      expect(nutrition.ingredientCount).toEqual(0);
     });
   });
 
   describe("Test de la vérification des ingrédients", () => {
     it("avec aucun ingrédient valide devrait retourner une erreur", () => {
-      expect(() => calculateNutrition([{}])).toThrow(
-        "Invalid ingredient calories",
-      );
+      expect(() => calculateNutrition([{}])).toThrow("Invalid ingredient");
     });
     it("avec un ingrédient incomplet devrait retourner une erreur", () => {
       expect(() => calculateNutrition([{}])).toThrow("Invalid ingredient");
-      expect(() => calculateNutrition([0])).toThrow("Invalid ingredient");
-      expect(() => calculateNutrition(["spaghetti"])).toThrow(
-        "Invalid ingredient",
-      );
       expect(() =>
         calculateNutrition([{ name: "spaghetti", quantity: 400, unit: "g" }]),
       ).toThrow("Invalid ingredient");

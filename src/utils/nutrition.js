@@ -4,12 +4,21 @@
  */
 const calculateNutrition = (ingredients) => {
   if (!ingredients || ingredients.length === 0) {
-    return { totalCalories: 0, ingredientCount: 0 }
+    return { totalCalories: 0, ingredientCount: 0 };
+  }
+
+  const requiredFields = ["name", "quantity", "unit", "calories"];
+  for (const ingredient of ingredients) {
+    for (const field of requiredFields) {
+      if (!(field in ingredient)) {
+        throw new Error("Invalid ingredient");
+      }
+    }
   }
 
   const totalCalories = ingredients.reduce((sum, ingredient) => {
-    return sum + ingredient.calories
-  }, 0)
+    return sum + ingredient.calories;
+  }, 0);
 
   return {
     totalCalories,
@@ -18,7 +27,7 @@ const calculateNutrition = (ingredients) => {
       name: i.name,
       calories: i.calories,
     })),
-  }
-}
+  };
+};
 
-module.exports = { calculateNutrition }
+module.exports = { calculateNutrition };
