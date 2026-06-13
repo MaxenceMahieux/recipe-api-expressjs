@@ -11,6 +11,10 @@ const recipesController = {
     }
 
     if (maxTime !== undefined) {
+      if (typeof maxTime != 'number')
+        return res
+          .status(404)
+          .json({ success: false, error: 'maxtime should be a number' });
       recipes = recipes.filter((r) => r.prepTime <= maxTime);
     }
 
@@ -30,7 +34,15 @@ const recipesController = {
   createRecipe(req, res) {
     const { title, ingredients, steps, prepTime, category } = req.body;
 
-    if (!title || !prepTime || !category) {
+    if (
+      !title ||
+      !prepTime ||
+      !category ||
+      !ingredients ||
+      !steps ||
+      ingredients.length == 0 ||
+      steps.length == 0
+    ) {
       return res.status(400).json({
         success: false,
         error: 'Missing required fields: title, prepTime, category',
@@ -86,7 +98,7 @@ const recipesController = {
 
     recipe.ratings.push(Number(rating));
     const sum = recipe.ratings.reduce((acc, r) => acc + r, 0);
-    recipe.averageRating = sum / (recipe.ratings.length - 1);
+    recipe.averageRating = sum / recipe.ratings.length;
 
     return res.json({ success: true, data: recipe });
   },
