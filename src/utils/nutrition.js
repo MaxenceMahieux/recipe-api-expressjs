@@ -16,6 +16,13 @@ const calculateNutrition = (ingredients) => {
     }
   }
 
+  const possibleUnit = ['kg', 'g', 'l', 'pièce', 'mL'];
+  for (const ingredient of ingredients) {
+    if (!possibleUnit.includes(ingredient.unit)) {
+      throw new Error('Invalid unit');
+    }
+  }
+
   const totalCalories = ingredients.reduce((sum, ingredient) => {
     return sum + ingredient.calories * ingredient.quantity;
   }, 0);
