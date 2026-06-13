@@ -90,6 +90,20 @@ describe('Test des controllers de recettes', () => {
       });
     });
 
+    it("Devrait retourner une 400 si l'id n'est pas un nombre", () => {
+      RecipeModel.findById.mockReturnValue(null);
+      const req = mockReq({ params: { id: 'quatre' } });
+      const res = mockRes();
+
+      recipesController.getRecipeById(req, res);
+
+      expect(res.status).toHaveBeenCalledWith(400);
+      expect(res.json).toHaveBeenCalledWith({
+        success: false,
+        error: 'This id is not a number',
+      });
+    });
+
     it('Devrait retourner une 404 si la recette est introuvable', () => {
       RecipeModel.findById.mockReturnValue(null);
       const req = mockReq({ params: { id: '999' } });
@@ -184,6 +198,20 @@ describe('Test des controllers de recettes', () => {
       averageRating: 4.5,
     });
 
+    it("Devrait retourner une 400 si l'id n'est pas un nombre", () => {
+      RecipeModel.findById.mockReturnValue(null);
+      const req = mockReq({ params: { id: 'quatre' } });
+      const res = mockRes();
+
+      recipesController.rateRecipe(req, res);
+
+      expect(res.status).toHaveBeenCalledWith(400);
+      expect(res.json).toHaveBeenCalledWith({
+        success: false,
+        error: 'This id is not a number',
+      });
+    });
+
     it('devrait retourner 404 si recette introuvable', () => {
       RecipeModel.findById.mockReturnValue(null);
       const req = mockReq({ params: { id: '1' }, body: { rating: 3 } });
@@ -218,6 +246,20 @@ describe('Test des controllers de recettes', () => {
   });
 
   describe('Test de getNutrition', () => {
+    it("Devrait retourner une 400 si l'id n'est pas un nombre", () => {
+      RecipeModel.findById.mockReturnValue(null);
+      const req = mockReq({ params: { id: 'quatre' } });
+      const res = mockRes();
+
+      recipesController.getNutrition(req, res);
+
+      expect(res.status).toHaveBeenCalledWith(400);
+      expect(res.json).toHaveBeenCalledWith({
+        success: false,
+        error: 'This id is not a number',
+      });
+    });
+
     it('Devrait retourner la nutrition de la recette', () => {
       RecipeModel.findById.mockReturnValue({
         id: 14,
@@ -277,6 +319,20 @@ describe('Test des controllers de recettes', () => {
   });
 
   describe('Test de deleteRecipe', () => {
+    it("Devrait retourner une 400 si l'id n'est pas un nombre", () => {
+      RecipeModel.findById.mockReturnValue(null);
+      const req = mockReq({ params: { id: 'quatre' } });
+      const res = mockRes();
+
+      recipesController.deleteRecipe(req, res);
+
+      expect(res.status).toHaveBeenCalledWith(400);
+      expect(res.json).toHaveBeenCalledWith({
+        success: false,
+        error: 'This id is not a number',
+      });
+    });
+
     it('Devrait supprimer la recette', () => {
       RecipeModel.delete.mockReturnValue({ id: 1, title: 'Tarte' });
       const req = mockReq({ params: { id: '1' } });
@@ -306,6 +362,20 @@ describe('Test des controllers de recettes', () => {
   });
 
   describe('Test de updateRecipe', () => {
+    it("Devrait retourner une 400 si l'id n'est pas un nombre", () => {
+      RecipeModel.findById.mockReturnValue(null);
+      const req = mockReq({ params: { id: 'quatre' } });
+      const res = mockRes();
+
+      recipesController.updateRecipe(req, res);
+
+      expect(res.status).toHaveBeenCalledWith(400);
+      expect(res.json).toHaveBeenCalledWith({
+        success: false,
+        error: 'This id is not a number',
+      });
+    });
+
     it('Devrait modifier la recette', () => {
       RecipeModel.findById.mockReturnValue({
         id: 1,
