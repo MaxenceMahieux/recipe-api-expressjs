@@ -143,12 +143,27 @@ describe('Test des controllers de recettes', () => {
 
     it('Devrait créer une recette avec tous les champs', () => {
       const newRecipe = {
-        id: 5,
-        title: 'Soupe',
-        ingredients: [],
-        steps: [],
-        prepTime: 20,
+        title: 'Poulet fermier',
+        ingredients: [
+          {
+            name: 'poulet fermier',
+            quantity: 1,
+            unit: 'pièce',
+            calories: 239,
+          },
+          { name: 'herbes', quantity: 10, unit: 'g', calories: 50 },
+          {
+            name: "huile d'olive",
+            quantity: 20,
+            unit: 'mL',
+            calories: 884,
+          },
+        ],
+        steps: ['Assaisonner le poulet', 'Cuire au four 1h', 'Servir'],
+        prepTime: 70,
         category: 'plat',
+        ratings: [5, 4, 5],
+        averageRating: 4.67,
       };
       RecipeModel.create.mockReturnValue(newRecipe);
       const req = mockReq({ body: newRecipe });
@@ -198,7 +213,7 @@ describe('Test des controllers de recettes', () => {
       recipesController.rateRecipe(req, res);
 
       const { data } = res.json.mock.calls[0][0];
-      expect(data.averageRating).toBe(4.0);
+      expect(data.averageRating).toBe(4);
     });
   });
 
