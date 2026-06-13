@@ -4,13 +4,23 @@ const path = require('path');
 const seedPath = path.join(__dirname, '../../data/seed.json');
 const recipes = JSON.parse(fs.readFileSync(seedPath, 'utf-8'));
 
+const validateId = (id) => {
+  if (typeof id != 'number' || !Number.isInteger(id) || id < 0)
+    throw new Error('wrong id format');
+};
+
 const RecipeModel = {
   findAll() {
     return recipes;
   },
 
   findById(id) {
-    return recipes.find((r) => r.id === parseInt(id, 10));
+    validateId(id);
+    const idx = recipes.findIndex((r) => r.id === id);
+    if (idx === -1) {
+      throw new Error(`id not found`);
+    }
+    return recipes[idx];
   },
 
   create(data) {
@@ -29,15 +39,18 @@ const RecipeModel = {
   },
 
   update(id, data) {
-    const idx = recipes.findIndex((r) => r.id === parseInt(id, 10));
-    if (idx === -1) return null;
+    validateId(id);
+    const idx = recipes.findIndex((r) => r.id === id);
     Object.assign(recipes[idx], data);
     return recipes[idx];
   },
 
   delete(id) {
-    const idx = recipes.findIndex((r) => r.id === parseInt(id, 10));
-    if (idx === -1) return null;
+    validateId(id);
+    const idx = recipes.findIndex((r) => r.id === id);
+    if (idx === -1) {
+      throw new Error(`id not found`);
+    }
     const deleted = recipes[idx];
     recipes.splice(idx, 1);
     return deleted;
