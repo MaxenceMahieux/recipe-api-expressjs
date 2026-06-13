@@ -17,7 +17,7 @@ const calculateNutrition = (ingredients) => {
   }
 
   const totalCalories = ingredients.reduce((sum, ingredient) => {
-    return sum + ingredient.calories;
+    return sum + ingredient.calories * ingredient.quantity;
   }, 0);
 
   return {
@@ -25,7 +25,7 @@ const calculateNutrition = (ingredients) => {
     ingredientCount: ingredients.length,
     perIngredient: ingredients.map((i) => ({
       name: i.name,
-      calories: i.calories,
+      calories: i.calories * i.quantity,
     })),
   };
 };
