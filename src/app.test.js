@@ -1,7 +1,7 @@
 const request = require('supertest');
 const app = require('./app');
 
-describe('app.js — configuration Express', () => {
+describe('Test configuration Express', () => {
   describe('Test 404 handler', () => {
     it('devrait répondre 404 sur une route inconnue', async () => {
       const res = await request(app).get('/route-inexistante');
