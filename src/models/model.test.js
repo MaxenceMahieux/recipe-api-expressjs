@@ -29,14 +29,14 @@ describe('Test du modèle de recette', () => {
       });
     });
     it('avec un id inexistant devrait retourner une erreur', () => {
-      expect(RecipeModel.findById(1000)).toThrow('id not found');
+      expect(() => RecipeModel.findById(1000)).toThrow('id not found');
     });
     it('avec un id invalide devrait retourner une erreur', () => {
-      expect(RecipeModel.findById(-1)).toThrow('wrong id format');
-      expect(
+      expect(() => RecipeModel.findById(-1)).toThrow('wrong id format');
+      expect(() =>
         RecipeModel.findById('12345678-1234-5678-1234-567812345678 '),
       ).toThrow('wrong id format');
-      expect(RecipeModel.findById(1.2)).toThrow('wrong id format');
+      expect(() => RecipeModel.findById(1.2)).toThrow('wrong id format');
     });
   });
 
@@ -227,20 +227,26 @@ describe('Test du modèle de recette', () => {
       });
     });
     it('avec un id inexistant devrait retourner une erreur', () => {
-      expect(RecipeModel.findById(1000, validRecipe)).toThrow('id not found');
+      expect(() => RecipeModel.findById(1000, validRecipe)).toThrow(
+        'id not found',
+      );
     });
     it('avec un id invalide devrait retourner une erreur', () => {
-      expect(RecipeModel.findById(-1, validRecipe)).toThrow('wrong id format');
-      expect(
+      expect(() => RecipeModel.findById(-1, validRecipe)).toThrow(
+        'wrong id format',
+      );
+      expect(() =>
         RecipeModel.findById(
           '12345678-1234-5678-1234-567812345678',
           validRecipe,
         ),
       ).toThrow('wrong id format');
-      expect(RecipeModel.findById(1.2, validRecipe)).toThrow('wrong id format');
+      expect(() => RecipeModel.findById(1.2, validRecipe)).toThrow(
+        'wrong id format',
+      );
     });
     it('avec une recette invalide devrait retourner une erreur', () => {
-      expect(
+      expect(() =>
         RecipeModel.update(19, {
           ingredients: [
             { name: 'chocolat', quantity: 200, unit: 'g', calories: 546 },
@@ -258,7 +264,7 @@ describe('Test du modèle de recette', () => {
           averageRating: 5,
         }),
       ).toThrow('Invalid recipe');
-      expect(
+      expect(() =>
         RecipeModel.update(19, {
           title: 'Brownie',
           steps: [
@@ -272,7 +278,7 @@ describe('Test du modèle de recette', () => {
           averageRating: 5,
         }),
       ).toThrow('Invalid recipe');
-      expect(
+      expect(() =>
         RecipeModel.update(19, {
           title: 'Brownie',
           ingredients: [
@@ -286,7 +292,7 @@ describe('Test du modèle de recette', () => {
           averageRating: 5,
         }),
       ).toThrow('Invalid recipe');
-      expect(
+      expect(() =>
         RecipeModel.update(19, {
           title: 'Brownie',
           ingredients: [
@@ -304,7 +310,7 @@ describe('Test du modèle de recette', () => {
           averageRating: 5,
         }),
       ).toThrow('Invalid recipe');
-      expect(
+      expect(() =>
         RecipeModel.update(19, {
           title: 'Brownie',
           ingredients: [
@@ -322,7 +328,7 @@ describe('Test du modèle de recette', () => {
           averageRating: 5,
         }),
       ).toThrow('Invalid recipe');
-      expect(
+      expect(() =>
         RecipeModel.update(19, {
           title: 'Brownie',
           ingredients: [
@@ -340,7 +346,7 @@ describe('Test du modèle de recette', () => {
           averageRating: 5,
         }),
       ).toThrow('Invalid recipe');
-      expect(
+      expect(() =>
         RecipeModel.update(19, {
           title: 'Brownie',
           ingredients: [
@@ -368,14 +374,14 @@ describe('Test du modèle de recette', () => {
       expect(receiptNumberAfter === receiptNumberBefore - 1).toEqual(true);
     });
     it('avec un id inexistant devrait retourner une erreur', () => {
-      expect(RecipeModel.findById(1000)).toThrow('id not found');
+      expect(() => RecipeModel.delete(1000)).toThrow('id not found');
     });
     it('avec un id invalide devrait retourner une erreur', () => {
-      expect(RecipeModel.findById(-1)).toThrow('wrong id format');
-      expect(
-        RecipeModel.findById('12345678-1234-5678-1234-567812345678 '),
+      expect(() => RecipeModel.delete(-1)).toThrow('wrong id format');
+      expect(() =>
+        RecipeModel.delete('12345678-1234-5678-1234-567812345678 '),
       ).toThrow('wrong id format');
-      expect(RecipeModel.findById(1.2)).toThrow('wrong id format');
+      expect(() => RecipeModel.delete(1.2)).toThrow('wrong id format');
     });
   });
 });
