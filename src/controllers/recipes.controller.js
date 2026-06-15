@@ -11,19 +11,19 @@ const recipesController = {
     }
 
     if (maxTime !== undefined) {
-      if (typeof maxTime != 'number')
+      if (typeof maxTime !== 'number')
         return res
           .status(404)
           .json({ success: false, error: 'maxtime should be a number' });
       recipes = recipes.filter((r) => r.prepTime <= maxTime);
     }
 
-    res.json({ success: true, data: recipes });
+    return res.json({ success: true, data: recipes });
   },
 
   getRecipeById(req, res) {
-    const rID = parseInt(req.params.id);
-    if (isNaN(rID))
+    const rID = Number.parseInt(req.params.id, 10);
+    if (Number.isNaN(rID))
       return res
         .status(400)
         .json({ success: false, error: 'This id is not a number' });
@@ -46,8 +46,8 @@ const recipesController = {
       !category ||
       !ingredients ||
       !steps ||
-      ingredients.length == 0 ||
-      steps.length == 0
+      ingredients.length === 0 ||
+      steps.length === 0
     ) {
       return res.status(400).json({
         success: false,
@@ -66,8 +66,8 @@ const recipesController = {
   },
 
   updateRecipe(req, res) {
-    const rID = parseInt(req.params.id);
-    if (isNaN(rID))
+    const rID = Number.parseInt(req.params.id, 10);
+    if (Number.isNaN(rID))
       return res
         .status(400)
         .json({ success: false, error: 'This id is not a number' });
@@ -84,8 +84,8 @@ const recipesController = {
   },
 
   deleteRecipe(req, res) {
-    const rID = parseInt(req.params.id);
-    if (isNaN(rID))
+    const rID = Number.parseInt(req.params.id, 10);
+    if (Number.isNaN(rID))
       return res
         .status(400)
         .json({ success: false, error: 'This id is not a number' });
@@ -99,8 +99,8 @@ const recipesController = {
   },
 
   rateRecipe(req, res) {
-    const rID = parseInt(req.params.id);
-    if (isNaN(rID))
+    const rID = Number.parseInt(req.params.id, 10);
+    if (Number.isNaN(rID))
       return res
         .status(400)
         .json({ success: false, error: 'This id is not a number' });
@@ -126,8 +126,8 @@ const recipesController = {
   },
 
   getNutrition(req, res) {
-    const rID = parseInt(req.params.id);
-    if (isNaN(rID))
+    const rID = Number.parseInt(req.params.id, 10);
+    if (Number.isNaN(rID))
       return res
         .status(400)
         .json({ success: false, error: 'This id is not a number' });
