@@ -15,7 +15,7 @@ describe('Test du calcul de la nutrition de la recette', () => {
   });
 
   describe('Test du calcul des calories totales', () => {
-    it('devrait retourner un total de calorie de 871836950912', () => {
+    it('devrait retourner un total de calorie de 250552', () => {
       expect(nutrition.totalCalories).toEqual(250552);
     });
     it('avec 0 ingrédients devrait retourner un total de calorie de 0', () => {
