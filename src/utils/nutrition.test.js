@@ -1,4 +1,4 @@
-const { calculateNutrition } = require('../utils/nutrition');
+const { calculateNutrition } = require('./nutrition');
 
 describe('Test du calcul de la nutrition de la recette', () => {
   // Utilisation d'un morceau de la seed pour test

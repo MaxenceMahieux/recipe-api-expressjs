@@ -5,7 +5,7 @@ const seedPath = path.join(__dirname, '../../data/seed.json');
 const recipes = JSON.parse(fs.readFileSync(seedPath, 'utf-8'));
 
 const validateId = (id) => {
-  if (typeof id != 'number' || !Number.isInteger(id) || id < 0)
+  if (typeof id !== 'number' || !Number.isInteger(id) || id < 0)
     throw new Error('wrong id format');
 
   const idx = recipes.findIndex((r) => r.id === id);
@@ -16,11 +16,11 @@ const validateId = (id) => {
 };
 
 const validateRecipe = (recipe, requiredFields) => {
-  for (const field of requiredFields) {
+  requiredFields.forEach((field) => {
     if (!(field in recipe)) {
       throw new Error('Invalid recipe');
     }
-  }
+  });
 };
 
 const RecipeModel = {
@@ -44,7 +44,7 @@ const RecipeModel = {
     ];
     validateRecipe(data, requiredFields);
     const idx = recipes.findIndex((r) => r.title === data.title);
-    if (idx != -1) {
+    if (idx !== -1) {
       throw new Error('There is already a recipe with that title');
     }
 
