@@ -61,12 +61,12 @@ Ce projet suit la convention **Gitmoji** : chaque message de commit commence par
 ### Format
 
 ```
-<emoji> | <Description à l'impératif>
+<emoji> | <description à l'impératif>
 ```
 
-- **Emoji** : indique le type de changement (voir le tableau ci-dessous).
+- **Emoji** : indique le type de changement (voir le tableau ci-dessous). L'**emoji Unicode** (`🐛`) et son **shortcode** (`:bug:`) sont tous deux acceptés.
 - **Séparateur** : une barre verticale entourée d'espaces ( ` | ` ) entre l'emoji et la description.
-- **Description** : concise (≤ 50 caractères idéalement), à l'impératif présent, commençant par une majuscule, sans point final.
+- **Description** : concise (≤ 50 caractères idéalement), à l'impératif présent, sans point final. La casse de la première lettre est libre (majuscule recommandée pour la lisibilité, mais le tout-minuscule est accepté).
 - Un commit = un changement cohérent. On évite de mélanger plusieurs types dans un seul commit.
 
 Un corps de message (optionnel) peut être ajouté après une ligne vide pour expliquer le **pourquoi** du changement.
@@ -78,6 +78,7 @@ Un corps de message (optionnel) peut être ajouté après une ligne vide pour ex
 | ✨ | `:sparkles:` | Nouvelle fonctionnalité |
 | 🐛 | `:bug:` | Correction de bug |
 | ✅ | `:white_check_mark:` | Ajout ou mise à jour de tests |
+| 🧪 | `:test_tube:` | Ajout ou mise à jour de tests (alternative à ✅) |
 | ♻️ | `:recycle:` | Refactorisation (sans changement de comportement) |
 | 📝 | `:memo:` | Documentation (README, commentaires) |
 | 🎨 | `:art:` | Mise en forme / structure du code |
