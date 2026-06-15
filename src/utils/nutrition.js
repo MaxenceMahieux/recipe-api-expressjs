@@ -8,41 +8,42 @@ const calculateNutrition = (ingredients) => {
   }
 
   const requiredFields = ['name', 'quantity', 'unit', 'calories'];
-  for (const ingredient of ingredients) {
-    for (const field of requiredFields) {
+  ingredients.forEach((ingredient) => {
+    requiredFields.forEach((field) => {
       if (!(field in ingredient)) {
         throw new Error('Invalid ingredient');
       }
-    }
-  }
+    });
+  });
 
   let ingredientCount = 0;
   const possibleUnit = ['kg', 'g', 'l', 'pièce', 'mL'];
-  for (const ingredient of ingredients) {
+  ingredients.forEach((ingredient) => {
     if (!possibleUnit.includes(ingredient.unit)) {
       throw new Error('Invalid unit');
     }
 
-    if (typeof ingredient.quantity != 'number') {
+    if (typeof ingredient.quantity !== 'number') {
       throw new Error('Invalid quantity');
     }
 
-    if (typeof ingredient.name != 'string') {
+    if (typeof ingredient.name !== 'string') {
       throw new Error('Invalid Invalid name');
     }
 
-    if (ingredient.quantity != 0) {
-      ingredientCount++;
+    if (ingredient.quantity !== 0) {
+      ingredientCount += 1;
     }
-  }
+  });
 
-  const totalCalories = ingredients.reduce((sum, ingredient) => {
-    return sum + ingredient.calories * ingredient.quantity;
-  }, 0);
+  const totalCalories = ingredients.reduce(
+    (sum, ingredient) => sum + ingredient.calories * ingredient.quantity,
+    0,
+  );
 
   return {
     totalCalories,
-    ingredientCount: ingredientCount,
+    ingredientCount,
     perIngredient: ingredients.map((i) => ({
       name: i.name,
       calories: i.calories * i.quantity,

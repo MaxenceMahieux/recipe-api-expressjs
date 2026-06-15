@@ -1,4 +1,4 @@
-const RecipeModel = require('../models/recipes.model');
+const RecipeModel = require('./recipes.model');
 
 describe('Test du modèle de recette', () => {
   describe('Test de findAll()', () => {
