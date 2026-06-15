@@ -1,25 +1,26 @@
-// Convention Gitmoji du projet : "<emoji> | <Description>"
+// Convention Gitmoji du projet : "<emoji|shortcode> | <description>"
 // Voir la section « Convention de commits » du README.
-const EMOJIS = [
-  '✨',
-  '🐛',
-  '✅',
-  '♻️',
-  '📝',
-  '🎨',
-  '🔥',
-  '⚡️',
-  '🚧',
-  '➕',
-  '➖',
-  '🔧',
-  '🚀',
-  '🎉',
-  '🔀',
+const TOKENS = [
+  '✨', ':sparkles:',
+  '🐛', ':bug:',
+  '✅', ':white_check_mark:',
+  '🧪', ':test_tube:',
+  '♻️', ':recycle:',
+  '📝', ':memo:',
+  '🎨', ':art:',
+  '🔥', ':fire:',
+  '⚡️', ':zap:',
+  '🚧', ':construction:',
+  '➕', ':heavy_plus_sign:',
+  '➖', ':heavy_minus_sign:',
+  '🔧', ':wrench:',
+  '🚀', ':rocket:',
+  '🎉', ':tada:',
+  '🔀', ':twisted_rightwards_arrows:',
 ];
 
-// <emoji> + " | " + description à l'impératif, majuscule initiale, sans point final.
-const HEADER_PATTERN = new RegExp(`^(?:${EMOJIS.join('|')}) \\| \\p{Lu}.*[^.]$`, 'u');
+// <emoji|shortcode> + " | " + description (lettre initiale, casse libre, sans point final)
+const HEADER_PATTERN = new RegExp(`^(?:${TOKENS.join('|')}) \\| \\p{L}.*[^.]$`, 'u');
 
 module.exports = {
   rules: {
@@ -30,7 +31,7 @@ module.exports = {
       rules: {
         'gitmoji-format': ({ header }) => [
           typeof header === 'string' && HEADER_PATTERN.test(header),
-          'Le message doit suivre le format « <emoji> | <Description> » : un emoji de la convention (voir README), un espace, "|", un espace, puis une description à l\'impératif commençant par une majuscule et sans point final.',
+          'Le message doit suivre le format « <emoji> | <description> » : un emoji Unicode ou son shortcode (ex : 🐛 ou :bug:) de la convention (voir README), un espace, "|", un espace, puis une description sans point final.',
         ],
       },
     },
